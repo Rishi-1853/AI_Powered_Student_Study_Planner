@@ -1,0 +1,152 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1 class="mb-4">
+    Dashboard
+</h1>
+
+<div class="row g-3">
+
+    <div class="col-lg-4 col-md-6 col-sm-12">
+
+        <div class="card p-4 metric-card">
+
+            <h5>Predicted Score</h5>
+
+            <h2>{{ predicted_score }}%</h2>
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-4 col-md-6 col-sm-12">
+
+        <div class="card p-4 metric-card">
+
+            <h5>Study Hours</h5>
+
+            <h2>{{ total_hours }}</h2>
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-4 col-md-6 col-sm-12">
+
+        <div class="card p-4 metric-card">
+
+            <h5>Subjects</h5>
+
+            <h2>{{ completed_subjects }}</h2>
+
+        </div>
+
+    </div>
+
+</div>
+
+    <!-- Subjects Card -->
+    <div class="col-md-4">
+
+        <div class="card p-4">
+
+            <h5>
+                Subjects
+            </h5>
+
+            <h2>
+                {{ completed_subjects }}
+            </h2>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Weak Subjects -->
+
+<div class="card p-4 mt-4">
+
+    <h3>
+        Weak Subjects
+    </h3>
+
+    <ul>
+
+        {% for subject in analysis.weak_subjects %}
+
+        <li>
+            {{ subject }}
+        </li>
+
+        {% endfor %}
+
+    </ul>
+
+</div>
+
+<!-- Daily Goals -->
+
+<div class="card p-4 mt-3">
+
+    <h4>
+        Daily Goals
+    </h4>
+
+    <ul>
+
+    {% for goal in analysis.daily_goals %}
+
+        <li>{{ goal }}</li>
+
+    {% endfor %}
+
+    </ul>
+
+</div>
+
+<!-- Recommendations -->
+
+<div class="card p-4 mt-3">
+
+    <h4>
+        High Priority Subjects
+    </h4>
+
+    <ul>
+
+    {% for subject in priority_subjects %}
+
+        <li>{{ subject }}</li>
+
+    {% endfor %}
+
+    </ul>
+
+</div>
+
+<!-- Performance Tips -->
+
+<div class="card p-4 mt-4">
+
+    <h3>
+        Performance Tips
+    </h3>
+
+    <ul>
+
+        {% for tip in analysis.tips %}
+
+        <li>
+            {{ tip }}
+        </li>
+
+        {% endfor %}
+
+    </ul>
+
+</div>
+
+{% endblock %}

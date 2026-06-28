@@ -342,17 +342,6 @@ def predict_score():
             "error": str(e)
         }
 
-# ==========================================
-# RUN APP
-# ==========================================
-
-if __name__ == "__main__":
-
-    app.run(
-        debug=True
-    )
-
-
 @app.route(
     "/register",
     methods=["GET","POST"]
@@ -420,6 +409,18 @@ def logout():
     session.clear()
 
     return redirect("/")
+
+# ==========================================
+# RUN APP
+# ==========================================
+
+if __name__ == "__main__":
+
+    app.run(
+        debug=True
+    )
+
+
 
 
 
